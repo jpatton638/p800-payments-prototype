@@ -5,12 +5,38 @@
 {{/pageTitle}}
 
 {{$main}}
+
 <div class="container">
     <h1 class="heading-large">Check details</h1>
-    <a href="confirmation.html" class="button">Click</a>
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h2 class="heading-large">Repayment Due:</h2>
+        </div>
+        <div class="grid column-third">
+            <h2 class="heading-large">£100.00</h2>
+        </div>
+        <div class="column-two-thirds">
+            <h3 class="heading-medium name-header">Bank Account Details</h3>
+
+            <p>Please enter the bank account details where you want your repayment to be made.</p>
+            <!-- Use .form-group to create spacing when wrapping label and input pairs -->
+            <div class="form-group">
+                <label class="form-label" for="account-number">Account Number</label>
+                <input class="form-control" id="account-number" name="account-number" type="text">
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="sort-code1">Sort Code</label>
+                <input class="form-control form-control--sort-code" id="sort-code1" name="sort-code1" type="text">
+	              <input class="form-control form-control--sort-code" id="sort-code2" name="sort-code2" type="text">
+	              <input class="form-control form-control--sort-code" id="sort-code3" name="sort-code3" type="text">
+            </div>
+
+            <a href="confirmation.html" class="button">Make Payment</a>
+        </div>
+    </div>
 
 </div>
-
 
 {{/main}}
 

@@ -1,1 +1,26 @@
 @import "app.scss";
+
+.name-header {
+  border-bottom: 2px solid #bfc1c3;
+  padding-bottom: 12px !important;
+}
+
+.done-box {
+  background-color: #26A197;
+  padding: 60px 30px;
+  margin: 15px 0;
+}
+
+.done-box h1.heading-large,
+.done-box h2.heading-medium,
+.done-box p{
+  color: #fff;
+  text-align: center;
+  padding: 0;
+  margin: 0 0 0.5em 0;
+}
+
+.form-control--sort-code {
+  width: 16%;
+  margin-right: 3px;
+}
