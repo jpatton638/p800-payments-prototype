@@ -7,12 +7,20 @@
 {{$main}}
 
 <div class="container">
-    <h1 class="heading-large">Start page</h1>
+    <h1 class="heading-large">Other Service</h1>
 
     <div class="column-two-thirds">
-        <p>Content</p>
-        
-        <a href="check-details.html" class="button">Click</a>
+        <form method="post" action="check-details">
+            <div class="form-group">
+                <label class="form-label" for="repayment">Amount to be repaid:</label>
+
+                <span class="heading-large">£  </span><input class="form-control" id="repayment" name="repayment"
+                                                             type="text">
+            </div>
+            <button type="submit" class="button">Submit</button>
+        </form>
+
+        <!--<a href="check-details.html" class="button">Click</a>-->
 
     </div>
 
