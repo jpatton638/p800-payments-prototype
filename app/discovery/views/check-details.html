@@ -11,7 +11,7 @@
 
     <div class="grid-row">
         <div class="column-two-thirds">
-            <h2 class="heading-large">Repayment Due: £{{repayment}}</h2>
+            <h2 class="heading-large">Repayment Due:</h2>
         </div>
         <div class="grid column-third">
         </div>
@@ -21,17 +21,15 @@
             <p>Please enter the bank account details where you want your repayment to be made.</p>
             <!-- Use .form-group to create spacing when wrapping label and input pairs -->
             <div class="form-group">
-                <label class="form-label" for="account-number">Account Number</label>
-                <input class="form-control" id="account-number" name="account-number" type="text">
+                <p>Account Number: {{accountNumber}}</p>
             </div>
             <div class="form-group">
-                <label class="form-label" for="sort-code1">Sort Code</label>
-                <input class="form-control form-control--sort-code" id="sort-code1" name="sort-code1" type="text">
-	              <input class="form-control form-control--sort-code" id="sort-code2" name="sort-code2" type="text">
-	              <input class="form-control form-control--sort-code" id="sort-code3" name="sort-code3" type="text">
+                <p>Sort Code: {{sortcode1}}-{{sortcode2}}-{{sortcode3}}</p>
             </div>
 
-            <a href="confirmation.html" class="button">Make Payment</a>
+            <a href="confirmation.html" class="button">Confirm Details and Make Payment</a>
+            <p><a href="index.html">Cancel</a></p>
+
         </div>
     </div>
 

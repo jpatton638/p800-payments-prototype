@@ -1,0 +1,45 @@
+{{<layout}}
+
+{{$pageTitle}}
+	GOV.UK prototyping kit
+{{/pageTitle}}
+
+{{$main}}
+
+<div class="container">
+	<h1 class="heading-large">Enter Bank Account details</h1>
+
+	<div class="grid-row">
+		<div class="column-two-thirds">
+			<h2 class="heading-large">Repayment Due: £{{repayment}}</h2>
+		</div>
+		<div class="grid column-third">
+		</div>
+		<div class="column-two-thirds">
+			<form method="post" action="check-details">
+				<h3 class="heading-medium name-header">Bank Account Details</h3>
+
+				<p>Please enter the bank account details where you want your repayment to be made.</p>
+				<!-- Use .form-group to create spacing when wrapping label and input pairs -->
+				<div class="form-group">
+					<label class="form-label" for="accountnumber">Account Number</label>
+					<input class="form-control" id="accountnumber" name="accountnumber" type="text">
+				</div>
+				<div class="form-group">
+					<label class="form-label" for="sortcode1">Sort Code</label>
+					<input class="form-control form-control--sort-code" id="sortcode1" name="sortcode1" type="text">
+					<input class="form-control form-control--sort-code" id="sortcode2" name="sortcode2" type="text">
+					<input class="form-control form-control--sort-code" id="sortcode3" name="sortcode3" type="text">
+				</div>
+
+				<!--<a href="confirmation.html" class="button">Make Payment</a>-->
+				<button type="submit" class="button">Submit Details</button>
+			</form>
+		</div>
+	</div>
+
+</div>
+
+{{/main}}
+
+{{/layout}}
