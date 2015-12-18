@@ -25,8 +25,6 @@
                 </p>
             </div>
 
-
-
             <p>Repayment amount: £{{repayment}}</p>
            <!-- <form method="post" action="return review()">-->
                 <form method="post" action="#" onsubmit="return review();">
@@ -44,15 +42,14 @@
                     <input class="form-control" id="accountnumber" name="accountnumber" type="text">
                 </div>
                 <div class="form-group">
-                    <label class="form-label" for="sortcode1">Sort Code</label>
-                    <input class="form-control form-control--sort-code" id="sortcode1" name="sortcode1" type="text">
-                    <input class="form-control form-control--sort-code" id="sortcode2" name="sortcode2" type="text">
-                    <input class="form-control form-control--sort-code" id="sortcode3" name="sortcode3" type="text">
+                    <label class="form-label" for="sortcodelong">Sort Code</label>
+                    <input class="form-control form-control" id="sortcodelong" name="sortcode1" type="text" style="width: 100px">
+                 
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="buildingsociety">Building society roll or reference number (if applicable)</label>
-                    <input class="form-control" id="buildingsociety" name="buildingsociety" type="text">
+                    <label class="form-label" for="buildingsoc">Building society roll or reference number (if applicable)</label>
+                    <input class="form-control" id="buildingsoc" name="buildingsoc" type="text">
                 </div>
 
                 <!--<a href="confirmation.html" class="button">Make Payment</a>-->
@@ -78,10 +75,14 @@
                     <p class="modal-accountname">Account name: </p>
                     <ul>
                         <li>
-                            <p>Account number: {{accountNumber}}</p>
+                            <p class="modal-accountnumber">Account number: </p>
                         </li>
                         <li>
-                            <p>Sort code: {{sortcode1}}-{{sortcode2}}-{{sortcode3}}</p>
+                            <p class="modal-sortcodelong">Sort code: </p>
+                        </li>
+                        
+                        <li>
+                            <p class="modal-buildingsoc">Building society roll or reference number: </p>
                         </li>
                     </ul>
                     <a class="button" href="confirmation">Continue</a>
@@ -112,6 +113,22 @@ var review = function(){
     var accountName = $('#accountname').val();
         console.log (accountName);
   $('.modal-accountname').append(accountName);
+    
+    var accountNumber = $('#accountnumber').val();
+        console.log (accountNumber);
+  $('.modal-accountnumber').append(accountNumber);
+    
+    
+     var sortcodelong = $('#sortcodelong').val();
+        console.log (sortcodelong);
+  $('.modal-sortcodelong').append(sortcodelong);
+    
+     var buildingsoc = $('#buildingsoc').val();
+        console.log (buildingsoc);
+  $('.modal-buildingsoc').append(buildingsoc);
+    
+    
+    
      return false;
     
 };
@@ -123,6 +140,10 @@ $(document).ready(function(){
     });
 });  
     
+    
+
+
+
     
     
 </script>
