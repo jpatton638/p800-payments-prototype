@@ -20,12 +20,17 @@
 
             <p>Please enter the bank account details where you want your repayment to be made.</p>
             <!-- Use .form-group to create spacing when wrapping label and input pairs -->
-           
+            <div class="form-group">
+                <p>Account Name: {{accountName}}</p>
+            </div>
             <div class="form-group">
                 <p>Account Number: {{accountNumber}}</p>
             </div>
             <div class="form-group">
                 <p>Sort Code: {{sortcode1}}-{{sortcode2}}-{{sortcode3}}</p>
+            </div>
+            <div class="form-group">
+                <p>Building society roll or reference number: {{buildingsociety}}</p>
             </div>
 
             <a href="confirmation.html" class="button">Confirm Details and Make Payment</a>
@@ -34,7 +39,10 @@
         </div>
     </div>
 
+   
+
 </div>
+
 
 {{/main}}
 
