@@ -43,5 +43,9 @@ module.exports = app;
 
 
 
-
+app.post('/refund-and-bank-details', function (req, res) {
+  var repayAmount = req.body.repayment;
+  //console.log( "The repayment amount is " + repayment)
+  res.render('refund-and-bank-details', {repayment: repayAmount} );
+});
 
