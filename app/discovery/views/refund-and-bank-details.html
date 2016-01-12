@@ -19,7 +19,7 @@
             
             <h2 class="heading-medium" style="margin-top:10px">Refund</h2>
             
-             <p>£{{repayment}} for a tax overpayment.</p>
+             <p>£{{repayment}} for an overpayment of tax.</p>
             
             <h2 class="heading-medium" style="margin-top:10px">Bank account details</h2>
 
@@ -79,17 +79,17 @@
          <!-- <a class="md-modal-close button-link" id="modal-close">Make changes</a></p>-->
         </span>
                 <div>
-                    <p class="modal-accountname">Account name:  <a class="button-link-edit" id="modal-edit-name">Change</a></p>
+                    <p class="modal-accountname">Account name:<span></span>  <a class="button-link-edit" id="modal-edit-name">Change</a></p>
                     <ul>
                         <li>
-                            <p class="modal-accountnumber">Account number: <a class="button-link-edit" id="modal-edit-number">Change</a> </p>
+                            <p class="modal-accountnumber">Account number: <span></span>  <a class="button-link-edit" id="modal-edit-number">Change</a> </p>
                         </li>
                         <li>
-                            <p class="modal-sortcodelong">Sort code: <a class="button-link-edit" id="modal-edit-sortcodelong">Change</a></p>
+                            <p class="modal-sortcodelong">Sort code: <span></span> <a class="button-link-edit" id="modal-edit-sortcodelong">Change</a></p>
                         </li>
                         
                         <li>
-                            <p class="modal-buildingsoc">Building society roll or reference number: <a class="button-link-edit" id="modal-edit-buildingsoc">Change</a></p>
+                            <p class="modal-buildingsoc">Building society roll or reference number: <span></span> <a class="button-link-edit" id="modal-edit-buildingsoc">Change</a></p>
                         </li>
                     </ul>
                     <a class="button" href="refund-being-processed">Pay refund into this account</a>
@@ -125,8 +125,8 @@ var review = function(){
     
  var accountName = $('#accountname').val();
     console.log (accountName);
-  $('#modal-edit-name').before(accountName);
-    $('#modal-edit-name').before(" ");
+  $('.modal-accountname span').html(" " + accountName);
+    
 
 
     
@@ -136,19 +136,16 @@ var review = function(){
     
     var accountNumber = $('#accountnumber').val();
         console.log (accountNumber);
-$('#modal-edit-number').before(accountNumber);
-    $('#modal-edit-number').before(" ");
+$('.modal-accountnumber span').html(" " + accountNumber);
     
     
      var sortcodelong = $('#sortcodelong').val();
         console.log (sortcodelong);
-  $('#modal-edit-sortcodelong').before(sortcodelong);
-    $('#modal-edit-sortcodelong').before(" ");
+ $('.modal-sortcodelong span').html(" " + sortcodelong);
     
      var buildingsoc = $('#buildingsoc').val();
         console.log (buildingsoc);
-  $('#modal-edit-buildingsoc').before(buildingsoc);
-    $('#modal-edit-buildingsoc').before(" ");
+  $('.modal-buildingsoc span').html(" " + buildingsoc);
     
     
     
@@ -160,12 +157,15 @@ $(document).ready(function(){
 
     $('#modal-close').on('click',function(){
         $('.modal-wrapper').hide();
+      
     });
 
     
     
      $('#modal-cancel').on('click',function(){
         $('.modal-wrapper').hide();
+         
+         
     });
     
     
@@ -191,12 +191,19 @@ $(document).ready(function(){
          $('#buildingsoc').focus();
     });
     
-    $("#buildingsoc").bind("keyup", function(e) {
-    $('.modal-buildingsoc').show();
+    //$("#buildingsoc").bind("keyup", function(e) {
+   // $('.modal-buildingsoc').show();
         
+        $("#buildingsoc").keyup(function () {
+   if ($(this).val()) {
+      $(".modal-buildingsoc").show();
+   }
+   else {
+      $(".modal-buildingsoc").hide();
+   }
+});
         
-        
-})
+
     
     
   //  $('a').on('click',function(){
