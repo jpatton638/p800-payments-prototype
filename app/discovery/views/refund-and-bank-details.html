@@ -79,21 +79,21 @@
          <!-- <a class="md-modal-close button-link" id="modal-close">Make changes</a></p>-->
         </span>
                 <div>
-                    <p class="modal-accountname">Account name:  <a class="button-link-edit" id="modal-edit-name">Edit</a></p>
+                    <p class="modal-accountname">Account name:  <a class="button-link-edit" id="modal-edit-name">Change</a></p>
                     <ul>
                         <li>
-                            <p class="modal-accountnumber">Account number: <a class="button-link-edit" id="modal-edit-number">Edit</a> </p>
+                            <p class="modal-accountnumber">Account number: <a class="button-link-edit" id="modal-edit-number">Change</a> </p>
                         </li>
                         <li>
-                            <p class="modal-sortcodelong">Sort code: <a class="button-link-edit" id="modal-edit-sortcodelong">Edit</a></p>
+                            <p class="modal-sortcodelong">Sort code: <a class="button-link-edit" id="modal-edit-sortcodelong">Change</a></p>
                         </li>
                         
                         <li>
-                            <p class="modal-buildingsoc">Building society roll or reference number: <a class="button-link-edit" id="modal-edit-buildingsoc">Edit</a></p>
+                            <p class="modal-buildingsoc">Building society roll or reference number: <a class="button-link-edit" id="modal-edit-buildingsoc">Change</a></p>
                         </li>
                     </ul>
                     <a class="button" href="refund-being-processed">Pay refund into this account</a>
-                    <br><a class="md-modal-cancel button-link" id="modal-cancel" style="margin-bottom:0px">Cancel</a>
+                    <br><a class="md-modal-cancel button-link" id="modal-cancel" style="margin-bottom:0px; margin-top:10px">Cancel</a>
                     
                 </div>
                 
@@ -115,6 +115,8 @@
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
+    
+    
 var review = function(){
     //do something after function key word
     //alert('test message')
@@ -188,6 +190,18 @@ $(document).ready(function(){
         $('.modal-wrapper').hide();
          $('#buildingsoc').focus();
     });
+    
+    $("#buildingsoc").bind("keyup", function(e) {
+    $('.modal-buildingsoc').show();
+        
+        
+        
+})
+    
+    
+  //  $('a').on('click',function(){
+ //$('#accountname').val("");
+//});
     
     
 });  

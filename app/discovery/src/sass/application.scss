@@ -139,8 +139,9 @@ display: none;
 }
 
 
-.button-link-edit{
+a.button-link-edit{
  font-family: "nta", Arial, sans-serif;
+    float: right;
     font-size: 19px;
     line-height: 1.31579;
     font-weight: 400;
@@ -153,4 +154,8 @@ display: none;
     line-height: 1.25;
     text-decoration: underline;
     cursor: pointer;   
+}
+
+.modal-buildingsoc{
+display: none;
 }
