@@ -73,28 +73,31 @@
     <div class="modal-wrapper">
         <div class="md-modal" id="modal-1">
             <div class="md-content">
+                
                 <span style="text-align: left;">
         <p class="md-modal-heading">Bank account details
-          <a class="md-modal-close button-link" id="modal-close">Make changes</a></p>
+         <!-- <a class="md-modal-close button-link" id="modal-close">Make changes</a></p>-->
         </span>
                 <div>
-                    <p class="modal-accountname">Account name: </p>
+                    <p class="modal-accountname">Account name:  <a class="button-link-edit" id="modal-edit-name">Edit</a></p>
                     <ul>
                         <li>
-                            <p class="modal-accountnumber">Account number: </p>
+                            <p class="modal-accountnumber">Account number: <a class="button-link-edit" id="modal-edit-number">Edit</a> </p>
                         </li>
                         <li>
-                            <p class="modal-sortcodelong">Sort code: </p>
+                            <p class="modal-sortcodelong">Sort code: <a class="button-link-edit" id="modal-edit-sortcodelong">Edit</a></p>
                         </li>
                         
                         <li>
-                            <p class="modal-buildingsoc">Building society roll or reference number: </p>
+                            <p class="modal-buildingsoc">Building society roll or reference number: <a class="button-link-edit" id="modal-edit-buildingsoc">Edit</a></p>
                         </li>
                     </ul>
                     <a class="button" href="refund-being-processed">Pay refund into this account</a>
                     <br><a class="md-modal-cancel button-link" id="modal-cancel" style="margin-bottom:0px">Cancel</a>
                     
                 </div>
+                
+                
             </div>
         </div>
 
@@ -118,22 +121,32 @@ var review = function(){
     
     $('.modal-wrapper').show();
     
-    var accountName = $('#accountname').val();
-        console.log (accountName);
-  $('.modal-accountname').append(accountName);
+ var accountName = $('#accountname').val();
+    console.log (accountName);
+  $('#modal-edit-name').before(accountName);
+    $('#modal-edit-name').before(" ");
+
+
+    
+ //   var accountName = $('#accountname').val();
+ //       console.log (accountName);
+ // $('.modal-accountname').append(accountName);
     
     var accountNumber = $('#accountnumber').val();
         console.log (accountNumber);
-  $('.modal-accountnumber').append(accountNumber);
+$('#modal-edit-number').before(accountNumber);
+    $('#modal-edit-number').before(" ");
     
     
      var sortcodelong = $('#sortcodelong').val();
         console.log (sortcodelong);
-  $('.modal-sortcodelong').append(sortcodelong);
+  $('#modal-edit-sortcodelong').before(sortcodelong);
+    $('#modal-edit-sortcodelong').before(" ");
     
      var buildingsoc = $('#buildingsoc').val();
         console.log (buildingsoc);
-  $('.modal-buildingsoc').append(buildingsoc);
+  $('#modal-edit-buildingsoc').before(buildingsoc);
+    $('#modal-edit-buildingsoc').before(" ");
     
     
     
@@ -152,6 +165,31 @@ $(document).ready(function(){
      $('#modal-cancel').on('click',function(){
         $('.modal-wrapper').hide();
     });
+    
+    
+     $('#modal-edit-name').on('click',function(){
+        $('.modal-wrapper').hide();
+         $('#accountname').focus();
+         
+    });
+    
+    $('#modal-edit-number').on('click',function(){
+        $('.modal-wrapper').hide();
+         $('#accountnumber').focus();
+         
+    });
+    
+     $('#modal-edit-sortcodelong').on('click',function(){
+        $('.modal-wrapper').hide();
+         $('#sortcodelong').focus();
+    });
+    
+     $('#modal-edit-buildingsoc').on('click',function(){
+        $('.modal-wrapper').hide();
+         $('#buildingsoc').focus();
+    });
+    
+    
 });  
     
 
