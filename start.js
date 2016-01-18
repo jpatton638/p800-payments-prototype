@@ -65,17 +65,13 @@ app.use('/public/images/icons',
 // include the app file from each sub project
 // as sub app mounted at the prefix of the name
 // of the folder
-glob.sync(__dirname + '/app/*')
-  .map(function (e) {
-
-    var p = './' + path.relative(
-      __dirname, e
-    ).replace(/\\/g, '/');
-
-    var meta = fs.readJsonSync(p + '/meta.json');
-    if (meta.hidden === false || app.locals.isDev) {
-      var name = e.replace(/^.*app(\/.*?)$/, '$1');
-      var sub = require(p + '/app.js');
+glob.sync(__dirname + '/app/**/app.js')
+    .map(function (e) {
+      var p = './' + path.relative(
+              __dirname, e
+          ).replace(/\\/g, '/');
+      var name = e.replace(/^.*app(\/.*?)\/.*$/, '$1');
+      var sub = require(p);
       // if a get request falls through to this
       // point we check to see if we have a view
       // that matches the url and render that.
@@ -101,8 +97,7 @@ glob.sync(__dirname + '/app/*')
         }
       });
       app.use(name, sub);
-    }
-  });
+    });
 
 // mount admin app
 if (app.locals.isDev) {
