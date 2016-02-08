@@ -115,6 +115,14 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
 
+  document.addEventListener("keydown", function(event) {
+    if (dialogOpen && event.keyCode == 27) {
+      modalHide();
+    }
+  }, true);
+
+
+  var lastFocus;
   var dialogOpen;
   // 4. whilst open, keyboard focus must be constrained within the dialogue
   document.addEventListener("focus", function(event) {
@@ -134,6 +142,8 @@
 
     $('.modal-wrapper').show();
     dialogOpen = true;
+    lastFocus = document.activeElement;
+
     var accountName = $('#accountname').val();
     $('.modal-accountname span').html(" " + accountName);
 
@@ -153,69 +163,73 @@
   var modalHide = function () {
     $('.modal-wrapper').hide();
     diaglogOpen = false;
+    lastFocus.focus();
   }
 
-$(document).ready(function(){
+  $(document).ready(function(){
 
-  $('#modal-close').on('click',function(){
-    modalHide();
+    $('#modal-close').on('click',function(){
+      modalHide();
+    });
+
+
+
+    $('#modal-cancel').on('click',function(){
+      modalHide();
+    });
+
+
+    $('#modal-edit-name').on('click',function(){
+      modalHide();
+      $('#accountname').focus();
+
+    });
+
+    $('#modal-edit-number').on('click',function(){
+      modalHide();
+      $('#accountnumber').focus();
+
+    });
+
+    $('#modal-edit-sortcodelong').on('click',function(){
+      modalHide();
+      $('#sortcodelong').focus();
+    });
+
+    $('#modal-edit-buildingsoc').on('click',function(){
+      modalHide();
+      $('#buildingsoc').focus();
+    });
+
+    //$("#buildingsoc").bind("keyup", function(e) {
+    // $('.modal-buildingsoc').show();
+
+    $("#buildingsoc").keyup(function () {
+      if ($(this).val()) {
+        $(".modal-buildingsoc").show();
+      }
+      else {
+        $(".modal-buildingsoc").hide();
+      }
+    });
+
   });
 
-
-
-  $('#modal-cancel').on('click',function(){
-    modalHide();
+  $(".modal-wrapper").on("show", function () {
+    $("body").addClass("modal-open");
+  }).on("hide", function () {
+    $("body").removeClass("modal-open")
   });
 
-
-  $('#modal-edit-name').on('click',function(){
-    modalHide();
-    $('#accountname').focus();
-
-  });
-
-  $('#modal-edit-number').on('click',function(){
-    modalHide();
-    $('#accountnumber').focus();
-
-  });
-
-  $('#modal-edit-sortcodelong').on('click',function(){
-    modalHide();
-    $('#sortcodelong').focus();
-  });
-
-  $('#modal-edit-buildingsoc').on('click',function(){
-    modalHide();
-    $('#buildingsoc').focus();
-  });
-
-  //$("#buildingsoc").bind("keyup", function(e) {
-  // $('.modal-buildingsoc').show();
-
-  $("#buildingsoc").keyup(function () {
-    if ($(this).val()) {
-      $(".modal-buildingsoc").show();
-    }
-    else {
-      $(".modal-buildingsoc").hide();
-    }
-});
-        
-
-    
-    
-  //  $('a').on('click',function(){
- //$('#accountname').val("");
-//});
-    
-    
-});  
-    
-
-
-
-    
+  (function ($) {
+    $.each(['show', 'hide'], function (i, ev) {
+      var el = $.fn[ev];
+      $.fn[ev] = function () {
+        this.trigger(ev);
+        return el.apply(this, arguments);
+      };
+    });
+  })(jQuery);
     
 </script>
 

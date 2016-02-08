@@ -52,6 +52,12 @@
     
 }
 
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
 .md-modal-heading {
     font-family: "nta", Arial, sans-serif;
     font-size: 24px;
