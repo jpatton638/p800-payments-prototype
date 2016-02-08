@@ -70,7 +70,7 @@
 
     <!-- modal-wrapper start -->
     <div class="modal-wrapper">
-        <div class="md-modal" id="modal-1">
+        <div class="md-modal" id="modal-1" role="dialog" aria-label="Confirm bank account details" tabindex="-1">
             <div class="md-content">
                 
                 <span style="text-align: left;">
@@ -114,92 +114,92 @@
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
-    
-    
-var review = function(){
-    //do something after function key word
-    //alert('test message')
-    
+
+  var dialogOpen;
+  // 4. whilst open, keyboard focus must be constrained within the dialogue
+  document.addEventListener("focus", function(event) {
+
+    var dialog = document.getElementById("modal-1");
+    console.log(dialog);
+    if (dialogOpen && !dialog.contains(event.target)) {
+      event.stopPropagation();
+      dialog.focus();
+    }
+
+  }, true);
+  // end of 4.
+
+
+  var review = function(){
+
     $('.modal-wrapper').show();
-    
- var accountName = $('#accountname').val();
-    console.log (accountName);
-  $('.modal-accountname span').html(" " + accountName);
-    
+    dialogOpen = true;
+    var accountName = $('#accountname').val();
+    $('.modal-accountname span').html(" " + accountName);
 
-
-    
- //   var accountName = $('#accountname').val();
- //       console.log (accountName);
- // $('.modal-accountname').append(accountName);
-    
     var accountNumber = $('#accountnumber').val();
-        console.log (accountNumber);
-$('.modal-accountnumber span').html(" " + accountNumber);
-    
-    
-     var sortcodelong = $('#sortcodelong').val();
-        console.log (sortcodelong);
- $('.modal-sortcodelong span').html(" " + sortcodelong);
-    
-     var buildingsoc = $('#buildingsoc').val();
-        console.log (buildingsoc);
-  $('.modal-buildingsoc span').html(" " + buildingsoc);
-    
-    
-    
-     return false;
-    
-};
-    
+    $('.modal-accountnumber span').html(" " + accountNumber);
+
+    var sortcodelong = $('#sortcodelong').val();
+    $('.modal-sortcodelong span').html(" " + sortcodelong);
+
+    var buildingsoc = $('#buildingsoc').val();
+    $('.modal-buildingsoc span').html(" " + buildingsoc);
+
+    return false;
+
+  };
+
+  var modalHide = function () {
+    $('.modal-wrapper').hide();
+    diaglogOpen = false;
+  }
+
 $(document).ready(function(){
 
-    $('#modal-close').on('click',function(){
-        $('.modal-wrapper').hide();
-      
-    });
+  $('#modal-close').on('click',function(){
+    modalHide();
+  });
 
-    
-    
-     $('#modal-cancel').on('click',function(){
-        $('.modal-wrapper').hide();
-         
-         
-    });
-    
-    
-     $('#modal-edit-name').on('click',function(){
-        $('.modal-wrapper').hide();
-         $('#accountname').focus();
-         
-    });
-    
-    $('#modal-edit-number').on('click',function(){
-        $('.modal-wrapper').hide();
-         $('#accountnumber').focus();
-         
-    });
-    
-     $('#modal-edit-sortcodelong').on('click',function(){
-        $('.modal-wrapper').hide();
-         $('#sortcodelong').focus();
-    });
-    
-     $('#modal-edit-buildingsoc').on('click',function(){
-        $('.modal-wrapper').hide();
-         $('#buildingsoc').focus();
-    });
-    
-    //$("#buildingsoc").bind("keyup", function(e) {
-   // $('.modal-buildingsoc').show();
-        
-        $("#buildingsoc").keyup(function () {
-   if ($(this).val()) {
+
+
+  $('#modal-cancel').on('click',function(){
+    modalHide();
+  });
+
+
+  $('#modal-edit-name').on('click',function(){
+    modalHide();
+    $('#accountname').focus();
+
+  });
+
+  $('#modal-edit-number').on('click',function(){
+    modalHide();
+    $('#accountnumber').focus();
+
+  });
+
+  $('#modal-edit-sortcodelong').on('click',function(){
+    modalHide();
+    $('#sortcodelong').focus();
+  });
+
+  $('#modal-edit-buildingsoc').on('click',function(){
+    modalHide();
+    $('#buildingsoc').focus();
+  });
+
+  //$("#buildingsoc").bind("keyup", function(e) {
+  // $('.modal-buildingsoc').show();
+
+  $("#buildingsoc").keyup(function () {
+    if ($(this).val()) {
       $(".modal-buildingsoc").show();
-   }
-   else {
+    }
+    else {
       $(".modal-buildingsoc").hide();
-   }
+    }
 });
         
 
