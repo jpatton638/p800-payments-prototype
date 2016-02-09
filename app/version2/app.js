@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
 // Get a post value from index
 
 app.post('/verify-start', function (req, res) {
-  res.redirect('bank-account');
+  res.redirect('verify-sign-in');
 });
 
 app.post('/bank-account', function (req, res) {
