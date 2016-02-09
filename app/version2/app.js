@@ -13,6 +13,10 @@ app.post('/verify-start', function (req, res) {
   res.redirect('verify-sign-in');
 });
 
+app.post('/verify-sign-in', function (req, res) {
+  res.redirect('verify-post-office');
+});
+
 app.post('/bank-account', function (req, res) {
   var repayAmount = req.body.repayment;
   res.render('bank-account', {repayment: repayAmount} );

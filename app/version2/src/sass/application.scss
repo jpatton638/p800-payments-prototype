@@ -287,3 +287,50 @@ table td.row-sum {
 main img {
   max-width: 100%;
 }
+
+/* VERIFY POST OFFICE */
+
+.verify-post-office{
+  background-image: url("../images/Login-Post-Office.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 1692px;
+  height: 800px;
+}
+
+.verify-post-office--form{
+  position: absolute;
+  top: 244px;
+  left: 280px;
+
+  input[type="text"]{
+    position: absolute;
+    top: 104px;
+    left: 76px;
+    width: 240px;
+    padding: 6px;
+
+  }
+  input[type="password"]{
+    position: absolute;
+    top: 188px;
+    left: 76px;
+    width: 240px;
+    padding: 6px;
+  }
+  a{
+    position: absolute;
+    top: 253px;
+    left: 75px;
+    display: inline-block;
+    background-color: #D8242F;
+    color: white;
+    width: 240px;
+    border-radius: 3px;
+    text-align: center;
+    padding: 5px;
+    font-family: "nta", Arial, sans-serif;
+    text-decoration: none;
+  }
+}
+
