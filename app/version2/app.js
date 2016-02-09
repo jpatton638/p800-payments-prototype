@@ -6,6 +6,11 @@ app.get('/', function (req, res) {
   res.render('index');
 });
 
+app.get('/verify-start', function (req, res) {
+  res.render('verify-start');
+});
+
+
 // Post request
 // Get a post value from index
 
