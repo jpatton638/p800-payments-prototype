@@ -9,24 +9,28 @@ app.get('/', function (req, res) {
 // Post request
 // Get a post value from index
 
+app.post('/verify-start', function (req, res) {
+  res.redirect('verify-sign-in');
+});
+
+app.post('/verify-sign-in', function (req, res) {
+  res.redirect('verify-post-office');
+});
+
 app.post('/bank-account', function (req, res) {
   var repayAmount = req.body.repayment;
-  //console.log( "The repayment amount is " + repayment)
   res.render('bank-account', {repayment: repayAmount} );
 });
 
-
-
 app.post('/check-details', function (req, res) {
 
-  //console.log(req.body)
-    var accountName = req.body.accountname;
+  var accountName = req.body.accountname;
   var accountNumber = req.body.accountnumber;
   var sortcode1 = req.body.sortcode1;
   var sortcode2 = req.body.sortcode2;
   var sortcode3 = req.body.sortcode3;
-    var buildingsociety = req.body.buildingsociety;
-  //console.log( "The repayment amount is " + repayment)
+  var buildingsociety = req.body.buildingsociety;
+
   res.render('check-details', {
     accountName: accountName,
     accountNumber: accountNumber,
@@ -35,17 +39,14 @@ app.post('/check-details', function (req, res) {
     sortcode3: sortcode3,
     buildingsociety: buildingsociety}
   );
-  //res.render('check-details', {sortcode1: sortcode1});
+
 });
-
-
-module.exports = app;
-
-
 
 app.post('/refund-and-bank-details', function (req, res) {
   var repayAmount = req.body.repayment;
-  //console.log( "The repayment amount is " + repayment)
   res.render('refund-and-bank-details', {repayment: repayAmount} );
 });
 
+
+
+module.exports = app;
