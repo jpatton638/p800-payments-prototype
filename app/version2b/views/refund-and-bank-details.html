@@ -1,0 +1,255 @@
+{{<layout}}
+
+{{$pageTitle}}
+	GOV.UK prototyping kit
+{{/pageTitle}}
+
+{{$main}}
+
+<div class="container">
+    <h1 class="heading-large">Refund and bank account details</h1>
+
+    <div class="grid-row">
+       
+        
+        <div class="column-two-thirds">
+            
+            <h2 class="heading-medium" style="margin-top:10px">Refund</h2>
+            
+           <!--  <p>£{{repayment}} for an overpayment of tax.</p>-->
+            
+          <p>£250 for an overpayment of tax.</p>
+            
+            <h2 class="heading-medium" style="margin-top:10px">Bank account details</h2>
+
+            <p>HM Revenue and Customs need the details of the bank, building society or credit union account that you want your refund paid into.</p>
+
+            <div class="panel panel-border-wide">
+                <p>
+                    Refunds are paid using Bacs, so make sure your account accepts this type of payment.
+                </p>
+            </div>
+
+           
+           <!-- <form method="post" action="return review..()">-->
+                <form method="post" action="#" onsubmit="return review();">
+
+
+                <!-- Use .form-group to create spacing when wrapping label and input pairs -->
+                <div class="form-group">
+                    <label class="form-label" for="accountname">Account name</label>
+                    <span class="form-hint">As shown on your bank account statements.</span>
+                    <input class="form-control" id="accountname" name="accountname" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="accountnumber">Account number</label>
+                    <input class="form-control" id="accountnumber" name="accountnumber" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="sortcodelong">Sort code</label>
+                    <input class="form-control form-control" id="sortcodelong" name="sortcode1" type="text" style="width: 100px">
+                 
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="buildingsoc">Building society roll or reference number (if you have one)</label>
+                    <input class="form-control" id="buildingsoc" name="buildingsoc" type="text">
+                </div>
+
+                <!--<a href="confirmation.html" class="button">Make Payment</a>-->
+                <button type="submit" class="button">Continue</button>
+            </form>
+
+
+
+
+        </div>
+    </div>
+
+
+    <!-- modal-wrapper start -->
+    <div class="modal-wrapper">
+        <div class="md-modal" id="modal-1" role="dialog" aria-label="Confirm bank account details" tabindex="-1">
+            <div class="md-content">
+                
+                <span style="text-align: left;">
+        <p class="md-modal-heading">Bank account details
+         <!-- <a class="md-modal-close button-link" id="modal-close">Make changes</a></p>-->
+        </span>
+                <div>
+                    <p class="modal-accountname">Account name:<span></span>  <a class="button-link-edit" id="modal-edit-name" tabindex="0" href="#">Change</a></p>
+                    <ul>
+                        <li>
+                            <p class="modal-accountnumber">Account number: <span></span>  <a class="button-link-edit" id="modal-edit-number" tabindex="0" href="#">Change</a>  </p>
+                        </li>
+                        <li>
+                            <p class="modal-sortcodelong">Sort code: <span></span> <a class="button-link-edit" id="modal-edit-sortcodelong" tabindex="0" href="#">Change</a></p>
+                        </li>
+                        
+                        <li>
+                            <p class="modal-buildingsoc">Building society roll or reference number: <span></span> <a class="button-link-edit" id="modal-edit-buildingsoc" tabindex="0" href="#">Change</a></p>
+                        </li>
+                    </ul>
+                    <a class="button" href="refund-being-processed">Pay refund into this account</a>
+                    <br><a class="md-modal-cancel button-link" id="modal-cancel" style="margin-bottom:0px; margin-top:10px" tabindex="0" href="#">Cancel</a>
+                    
+                </div>
+                
+                
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="md-overlay"></div>
+    </div>
+    <!-- modal-wrapper end -->
+
+
+
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+
+  document.addEventListener("keydown", function(event) {
+    if (dialogOpen && event.keyCode == 27) {
+      modalHide();
+    }
+  }, true);
+
+
+  var lastFocus;
+  var dialogOpen;
+  // 4. whilst open, keyboard focus must be constrained within the dialogue
+  document.addEventListener("focus", function(event) {
+
+    var dialog = document.getElementById("modal-1");
+    console.log(dialog);
+    if (dialogOpen && !dialog.contains(event.target)) {
+      event.stopPropagation();
+      dialog.focus();
+    }
+
+  }, true);
+  // end of 4.
+
+
+  var review = function(){
+
+    $('.modal-wrapper').show();
+    dialogOpen = true;
+    lastFocus = document.activeElement;
+
+    var accountName = $('#accountname').val();
+    $('.modal-accountname span').html(" " + accountName);
+
+    var accountNumber = $('#accountnumber').val();
+    $('.modal-accountnumber span').html(" " + accountNumber);
+
+    var sortcodelong = $('#sortcodelong').val();
+    $('.modal-sortcodelong span').html(" " + sortcodelong);
+
+    var buildingsoc = $('#buildingsoc').val();
+    $('.modal-buildingsoc span').html(" " + buildingsoc);
+
+    return false;
+
+  };
+
+  var modalHide = function () {
+    $('.modal-wrapper').hide();
+    diaglogOpen = false;
+    lastFocus.focus();
+  }
+
+  $(document).ready(function(){
+
+    $('#modal-close').on('click',function(){
+      modalHide();
+    });
+
+
+
+    $('#modal-cancel').on('click',function(){
+      modalHide();
+    });
+
+
+    $('#modal-edit-name').on('click',function(){
+      modalHide();
+      $('#accountname').focus();
+
+    });
+
+    $('#modal-edit-number').on('click',function(){
+      modalHide();
+      $('#accountnumber').focus();
+
+    });
+
+    $('#modal-edit-sortcodelong').on('click',function(){
+      modalHide();
+      $('#sortcodelong').focus();
+    });
+
+    $('#modal-edit-buildingsoc').on('click',function(){
+      modalHide();
+      $('#buildingsoc').focus();
+    });
+
+    //$("#buildingsoc").bind("keyup", function(e) {
+    // $('.modal-buildingsoc').show();
+
+    $("#buildingsoc").keyup(function () {
+         if (this.value == " ") {
+            $(".modal-buildingsoc").css("display", "none");
+        }
+        
+         else if (this.value == "") {
+            $(".modal-buildingsoc").css("display", "none");
+        }
+        
+         else if (this.value == "  ") {
+            $(".modal-buildingsoc").css("display", "none");
+        }
+        
+        else {
+            $(".modal-buildingsoc").css("display", "block");
+        }
+    });
+});
+    
+    
+
+  $(".modal-wrapper").on("show", function () {
+    $("body").addClass("modal-open");
+  }).on("hide", function () {
+    $("body").removeClass("modal-open")
+  });
+
+  (function ($) {
+    $.each(['show', 'hide'], function (i, ev) {
+      var el = $.fn[ev];
+      $.fn[ev] = function () {
+        this.trigger(ev);
+        return el.apply(this, arguments);
+      };
+    });
+  })(jQuery);
+    
+</script>
+
+<script>
+var my_title = document.getElementById("proposition-name");
+    my_title.innerHTML = "Check your tax payments"
+</script>
+
+
+
+{{/main}}
+
+{{/layout}}

@@ -1,0 +1,78 @@
+{{<layout}}
+
+{{$pageTitle}}
+	GOV.UK prototyping kit
+{{/pageTitle}}
+
+{{$main}}
+
+<div class="container">
+
+  <h1 class="heading-large">Who do you have an identity account with?</h1>
+
+  <p>If you don’t have an identity account, you can start now.</p>
+
+  <div class="grid-section">
+    <div class="column-one-third">
+      <div class="company">
+        <div class="company-inner">
+          <div class="company-logo">
+            <div class="company-logo-inner">
+              <img src="https://www.signin.service.gov.uk:443/assets/images/logos/post-office.png" alt="Post Office">
+            </div>
+          </div>
+          <form class="redirect-to-idp idp-option" method="post" action="">
+            <button name="https://auth.myprofile.postoffice.co.uk/sso/cabinet" type="submit" class="button" value="Post Office">Select Post Office</button>
+            <input name="selected-idp" type="hidden" value="https://auth.myprofile.postoffice.co.uk/sso/cabinet"></form>
+        </div>
+      </div>
+    </div>
+    <div class="column-one-third">
+      <div class="company">
+        <div class="company-inner">
+          <div class="company-logo">
+            <div class="company-logo-inner">
+              <img src="https://www.signin.service.gov.uk:443/assets/images/logos/experian.png" alt="Experian">
+            </div>
+          </div>
+          <form class="redirect-to-idp idp-option" method="post" action=""><button name="https://www.experianidentityservice.co.uk/Saml/" type="submit" class="button" value="Experian">Select Experian</button>
+            <input name="selected-idp" type="hidden" value="https://www.experianidentityservice.co.uk/Saml/"></form>
+        </div>
+      </div>
+    </div>
+    <div class="column-one-third">
+      <div class="company">
+        <div class="company-inner">
+          <div class="company-logo">
+            <div class="company-logo-inner">
+              <img src="https://www.signin.service.gov.uk:443/assets/images/logos/digidentity.png" alt="Digidentity">
+            </div>
+          </div>
+          <form class="redirect-to-idp idp-option" method="post" action="">
+            <button name="https://auth.digidentity.eu/sso/cabinet" type="submit" class="button" value="Digidentity">Select Digidentity</button>
+            <input name="selected-idp" type="hidden" value="https://auth.digidentity.eu/sso/cabinet"></form>
+        </div>
+      </div>
+    </div>
+    <div class="column-one-third">
+      <div class="company">
+        <div class="company-inner">
+          <div class="company-logo">
+            <div class="company-logo-inner">
+              <img src="https://www.signin.service.gov.uk:443/assets/images/logos/verizon.png" alt="Verizon">
+            </div>
+          </div>
+          <form class="redirect-to-idp idp-option" method="post" action="">
+            <button name="https://securemylogin.co.uk/openam" type="submit" class="button" value="Verizon">Select Verizon</button>
+            <input name="selected-idp" type="hidden" value="https://securemylogin.co.uk/openam">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{{/main}}
+
+{{/layout}}
