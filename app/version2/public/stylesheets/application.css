@@ -1742,6 +1742,11 @@ a.button-link-edit {
   margin-bottom: 0.65em;
   margin-top: 20px; }
 
+.section--branded .rule {
+  border-bottom: 5px solid #005ea5;
+  margin-bottom: 1em;
+  margin-top: 20px; }
+
 table td.row-sum {
   font-weight: 700; }
 

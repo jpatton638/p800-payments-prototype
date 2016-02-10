@@ -7,23 +7,21 @@
 {{$main}}
 
 <div class="container">
-    <h1 class="heading-xlarge" style="margin-bottom:0">Your tax calculation</h1>
-<span class="secondary-text-colour bold-xlarge">HMRC owes you £250</span>
+   
 
 <div class="grid-row">
     <div class="column-two-thirds">
         
+         <h1 class="heading-xlarge"style="margin-bottom:20px" >Your tax payment for the year 6 April 2014 to 5 April 2015</h1>
+<span class="secondary-text-colour bold-xlarge">HM Revenue and Customs owes you £250</span>
+        
         <section class="section--branded">
-        <h2 class="heading-medium">6 April 2014 to 5 April 2015</h2>
+            <div class="rule"></div>
              <p>
-   You have paid too much tax for the last tax year.
+   You have paid too much Income Tax for the last tax year.
   </p>
             
-            <p>Each year we check everyone’s Pay As You Earn account to see if the correct amount of Income Tax was collected. </p>
-            
-            <p>We have now looked at the latest information we hold for this year and have worked out that you have paid too much tax. We provide a full calculation and explanation in your tax calculation letter.</p>
-            
-            <p>Your taxable income was less than your tax-free Personal Allowance. You did not need to pay tax.</p>
+            <p>Your taxable income (£9,000) was less than your tax-free allowance (£10,600). You didn't need to pay any tax.</p>
             
             <section class="table-section">
       <table>
@@ -32,14 +30,14 @@
       <col width="19%">
       </colgroup><thead>
          <tr>
-            <th colspan="1">Tax payable</th>
+            <th colspan="1">Description</th>
             <th class="numeric">Amount (£)</th>
          </tr>
       </thead>
       <tbody>
         
          <tr>
-            <td>Tax you have already paid</td>
+            <td>Tax you paid</td>
            
             <td class="numeric">250</td>
          </tr>
@@ -51,20 +49,19 @@
          </tr>
           
          <tr>
-            <td class="row-sum" colspan="1">Total tax HMRC owe you</td>
+            <td class="row-sum" colspan="1">Your refund</td>
             <td class="numeric"><span class="heading-medium">250</span></td>
          </tr>
       </tbody>
       </table>
    </section>
         
-        <h3 class="heading-medium flush--ends">What happens next</h3>
+        <h3 class="heading-medium flush--ends">What happens next?</h3>
             <p>
-   Claim a refund of your overpaid tax online.
+                <a href="refund-and-bank-details">Get a refund of your overpaid tax</a>
   </p>
             
-             <a class="button" href="refund-and-bank-details">Claim refund</a>
-            
+                        
             
        <!--<br><br>
         <form method="post" action="refund-and-bank-details">
@@ -83,6 +80,11 @@
 </div>
 
 </div>
+
+<script>
+var my_title = document.getElementById("proposition-name");
+    my_title.innerHTML = "Check your tax payments"
+</script>
 
 {{/main}}
 
